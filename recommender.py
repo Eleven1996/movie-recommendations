@@ -108,39 +108,38 @@ def recommend_interactive(movies: MovieDict,
         command = input("Type 'no' to exit: ")    
 
 if __name__ == "__main__":
-    # print("Reading in a list of movies.")
+    print("Reading in a list of movies.")
     movfile = open('movies.csv', 'r')
     movies = student.read_movies(movfile)
     movfile.close()
 
-    # print("Reading in user ratings.")
+    print("Reading in user ratings.")
     ratingfile = open('ratings_medium.csv', 'r')
     ratings = student.read_ratings(ratingfile)
     ratingfile.close()
 
-    # print("Removing ratings for movies we have no data on.")
+    print("Removing ratings for movies we have no data on.")
     student.remove_unknown_movies(ratings, movies)
 
-    # print("Building movies to users dictionary.")
+    print("Building movies to users dictionary.")
     movie_users = student.movies_to_users(ratings)
-
 
     ### You can uncomment these to test recommendations for the following movies
 
-    # print_recommend({663:5, 274:4.5, 745:4.5}, movies, ratings, movie_users)
+    #print_recommend({663:5, 274:4.5, 745:4.5}, movies, ratings, movie_users)
     # Should get: [25753, 65, 25769, 74, 82]
     
-    # print_recommend({2109:3, 954:4}, movies, ratings, movie_users)
+    #print_recommend({2109:3, 954:4}, movies, ratings, movie_users)
     # Should get: [2313, 100, 2049, 2642, 6970]
     
-    # print_recommend({745:5}, movies, ratings, movie_users)
+    print_recommend({745:5}, movies, ratings, movie_users)
     # Should get: [25753, 25769, 82, 74, 2348]
     
-    # print_recommend({1262:5}, movies, ratings, movie_users)
+    print_recommend({1262:5}, movies, ratings, movie_users)
     # Should get: [4515, 2289, 1249, 55687, 2284]
 
 
     ### Run interactive recommendations
 
-    recommend_interactive(movies, ratings, movie_users)
+    #recommend_interactive(movies, ratings, movie_users)
 
