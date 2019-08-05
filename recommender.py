@@ -3,7 +3,8 @@
 from typing import List
 import recommender_functions as student
 from recommender_constants import MovieDict, Rating, UserRatingDict, MovieUserDict
-
+import time
+start_time = time.time()
 def print_recommend(target_rating: Rating,
                     movies: MovieDict,
                     ratings: UserRatingDict,
@@ -126,10 +127,10 @@ if __name__ == "__main__":
 
     ### You can uncomment these to test recommendations for the following movies
 
-    #print_recommend({663:5, 274:4.5, 745:4.5}, movies, ratings, movie_users)
+    print_recommend({663:5, 274:4.5, 745:4.5}, movies, ratings, movie_users)
     # Should get: [25753, 65, 25769, 74, 82]
     
-    #print_recommend({2109:3, 954:4}, movies, ratings, movie_users)
+    print_recommend({2109:3, 954:4}, movies, ratings, movie_users)
     # Should get: [2313, 100, 2049, 2642, 6970]
     
     print_recommend({745:5}, movies, ratings, movie_users)
@@ -138,7 +139,7 @@ if __name__ == "__main__":
     print_recommend({1262:5}, movies, ratings, movie_users)
     # Should get: [4515, 2289, 1249, 55687, 2284]
 
-
+    print("--- %s seconds ---" % (time.time() - start_time))
     ### Run interactive recommendations
 
     #recommend_interactive(movies, ratings, movie_users)
